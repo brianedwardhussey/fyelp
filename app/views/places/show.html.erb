@@ -38,6 +38,17 @@
         <%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
       <% end %>
   </div>
+  <br />
+  <h1>Photos</h1>
+
+
+  <div>
+  <% @place.photos.each do |photo| %>
+    <%= image_tag photo.picture %>
+    <%= photo.caption %>
+  <% end %>
+  </div>
+
 </div>
 
 <!-- Modal -->
@@ -85,13 +96,10 @@
   </div>
 <% end %>
 
-<% @place.photos.each do |photo| %>
-  <%= image_tag photo.picture %>
-  <%= photo.caption %>
-<% end %>
+
 
 <div class="clear"></div>
-<%= simple_form_for @photo, url: '#' do |f| %>
+<%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
   <%= f.input :picture %>
   <%= f.input :caption %>
   <%= f.submit "Add a Photo", class: 'btn btn-primary' %>
