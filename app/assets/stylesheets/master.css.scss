@@ -74,3 +74,8 @@ blockquote p {
   max-width: 70%;
   height: auto;
 }
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    max-height: 550px;
+    width: 100%;
+}
